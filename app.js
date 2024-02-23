@@ -9,7 +9,7 @@ const r1 = require('./routes/data')
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/api/data", (req, res) => {
+app.get("/", (req, res) => {
     res.send("hey");
 })
 app.use("/api/data", r1)
