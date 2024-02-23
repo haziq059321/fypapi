@@ -6,10 +6,6 @@ const dataapi = async (req, res) => {
     res.status(200).json(myData);
 };
 
-
-
-module.exports = { dataapi };
-
 module.exports = dataapi;
 
 
