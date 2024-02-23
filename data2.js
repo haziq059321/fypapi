@@ -2,7 +2,7 @@
 const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://broker.hivemq.com:1883')
 
-const dbconnect = require('./db/connect')
+//const dbconnect = require('./db/connect')
 // const appp = require('./app')
 const topic = "HydroData";
 
@@ -16,7 +16,7 @@ const moment = require('moment');
 client.on('connect', async () => {
     console.log('connected to mqtt');
     client.subscribe(topic);
-    //mongodb+srv://uzairansari2114:80nG2d2Lws0nFuTi@cluster0.zewkaxm.mongodb.net/uzair?retryWrites=true&w=majority
+
     await mongoose.connect(process.env.MONGOODB_URL);
 
 })
