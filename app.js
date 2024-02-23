@@ -1,7 +1,5 @@
 const express = require('express')
 const cors = require('cors');
-const data = require('./data2')
-const mqtt1 = require('./models/mqtt')
 const r1 = require('./routes/data')
 const mongoose = require('mongoose');
 
@@ -20,7 +18,7 @@ app.use('/', (req, res) => {
 
 mongoose
   .connect(process.env.MONGOODB_URL)
-  .then((result) => {
+  .then(() => {
     app.listen(4000, () => {
       console.log('listening on port 4000');
     });
