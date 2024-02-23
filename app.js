@@ -1,5 +1,5 @@
 const express = require('express')
-
+const cors = require('cors');
 const data = require('./data2')
 const mqtt1 = require('./models/mqtt')
 const r1 = require('./routes/data')
