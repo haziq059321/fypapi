@@ -2,12 +2,8 @@ const mongoose = require('mongoose')
 const datta = require('../models/mqtt')
 
 const dataapi = async (req, res) => {
-    const myData = await datta.find({});
-    res.status(200).json(myData);
-};
-const dataapitesting = async (req, res) => {
-    res.status(200).json({ msg: "this is our Hydroponics Data" });
+    res.status(200).json(datta);
 };
 
-module.exports = { dataapi, dataapitesting };
+module.exports =dataapi;
 
