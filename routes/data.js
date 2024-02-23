@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-const { dataapi, dataapitesting } = require('../controllers/HydroData')
-router.route("/").get(dataapi);
-router.route("/testing").get(dataapitesting);
+const dataapi = require('../controllers/HydroData')
+router.get('/getData', dataapi);
 
 module.exports = router;
