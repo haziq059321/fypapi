@@ -2,7 +2,7 @@
 const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://broker.hivemq.com:1883')
 
-// const dbconnect = require('./connection')
+const dbconnect = require('./db/connect')
 // const appp = require('./app')
 const topic = "HydroData";
 

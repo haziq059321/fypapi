@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 uri = "mongodb+srv://fyp59707276:059070072076@cluster0.km6zrvy.mongodb.net/fypretryWrites=true&w=majority&appName=Cluster0"
 
-const dbconnect = () => {
+const connect = () => {
     console.log("db connect yehhh");
 
     return mongoose.connect(uri, {
@@ -17,4 +17,4 @@ const dbconnect = () => {
 //     console.log('errr connected ', err);
 // })
 
-module.exports = dbconnect;
+module.exports = connect;
