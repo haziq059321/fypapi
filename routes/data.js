@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 
-const { dataapi, dataapitesting } = require('../controllers/data')
+const { dataapi, dataapitesting } = require('../controllers/HydroData')
 router.route("/").get(dataapi);
 router.route("/testing").get(dataapitesting);
 
