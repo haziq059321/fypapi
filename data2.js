@@ -67,3 +67,4 @@ saveData = async (data) => {
     console.log('Saved data:', data); // console
 
 }
+module.exports = data2;

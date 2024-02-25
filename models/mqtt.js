@@ -33,7 +33,7 @@ const EventsSchema = new Schema({
 }
 );
 EventsSchema.path('value').get(function (value) {
-    return parseFloat(value).toFixed(2);
+    return Math.floor(parseFloat(value));
 });
 
 module.exports = mongoose.model('Events', EventsSchema);
