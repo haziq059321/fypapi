@@ -32,8 +32,8 @@ const EventsSchema = new Schema({
     strict: false
 }
 );
-EventsSchema.path('value').get(function (num) {
-    return parseFloat(num).toFixed(2);
+EventsSchema.path('value').get(function (value) {
+    return parseFloat(value).toFixed(2);
 });
 
 module.exports = mongoose.model('Events', EventsSchema);
