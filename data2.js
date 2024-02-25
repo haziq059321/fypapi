@@ -2,9 +2,10 @@
 const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://broker.hivemq.com:1883')
 
-//const dbconnect = require('./db/connect')
+const connect = require('./db/connect')
 // const appp = require('./app')
 const topic = "HydroData";
+const topic2 = "HydroData2"
 
 const Event = require('./models/mqtt')
 const shortId = require('shortid');
@@ -16,6 +17,13 @@ const moment = require('moment');
 client.on('connect', async () => {
     console.log('connected to mqtt');
     client.subscribe(topic);
+
+    await mongoose.connect(process.env.MONGOODB_URL);
+
+})
+client.on('connect', async () => {
+    console.log('connected to mqtt');
+    client.subscribe(topic2);
 
     await mongoose.connect(process.env.MONGOODB_URL);
 
@@ -32,6 +40,17 @@ mongoose.connection.on('error', (err) => {
 
 client.on('message', async (topic, message) => {
     console.log(`topic is  ${topic.toString()} and message is ${message.toString()}`)
+    // let data = message;
+    let data = message.toString();
+    data = JSON.parse(data);
+    data._id = shortId.generate();
+    data.created = moment().utc().add(5, 'hours');
+
+    // Save live data into database
+    await saveData(data);
+})
+client.on('message', async (topic2, message) => {
+    console.log(`topic is  ${topic2.toString()} and message is ${message.toString()}`)
     // let data = message;
     let data = message.toString();
     data = JSON.parse(data);
