@@ -91,10 +91,7 @@ saveData = async (data) => {
     data = await data.save(); // async save 
     console.log('Saved data:', data);
     // console
-    let sortedEventData = await Event.find().sort({ created: 1 });
 
-    // Log the sorted data
-    console.log('Sorted data:', sortedEventData);
 }
 
 module.exports = app;
