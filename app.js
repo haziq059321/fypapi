@@ -89,8 +89,12 @@ client.on('message', async (topic2, message) => {
 saveData = async (data) => {
     data = new Event(data);  // Event table in db
     data = await data.save(); // async save 
-    console.log('Saved data:', data); // console
+    console.log('Saved data:', data);
+    // console
+    let sortedEventData = await Event.find().sort({ created: 1 });
 
+    // Log the sorted data
+    console.log('Sorted data:', sortedEventData);
 }
 
 module.exports = app;
